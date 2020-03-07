@@ -1,0 +1,13 @@
+{
+  "dupa" : true,
+  "lama" : "fajna",
+  "lamy" : {
+    "lama1" : true,
+    "lama2" : false,
+    "lama3" : {
+      "isZdrowa" : false,
+      "waga" : "110kg",
+      "zapach" : "śmierdzi"
+    }
+  }
+}
