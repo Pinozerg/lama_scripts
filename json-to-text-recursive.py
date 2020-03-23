@@ -1,18 +1,10 @@
-import json
+#! python3
 
-
-def dict_magic(d, prev='', sep='__'):
-    if isinstance(d, dict):
-        for k, v in d.items():
-            dict_magic(v, prev=prev+sep+str(k))
+# dict, nested dict tranformed into text lines
+def dict_flattener_v3(nested_dictionary, line_prefix='', key_separator='__', value_prefix='='):
+    if isinstance(nested_dictionary, dict):
+        for k, v in nested_dictionary.items():
+            yield from dict_flattener_v3(v, line_prefix=line_prefix + key_separator + str(k))
     else:
-        print(prev+'='+str(d))
-
-
-if __name__ == '__main__':
-    # path to json file
-    json_file = input()
-    with open(json_file, mode='r') as file:
-        j = json.load(file)
-        dict_magic(j)
+        yield line_prefix + value_prefix + str(nested_dictionary)
 
